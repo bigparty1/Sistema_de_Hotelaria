@@ -1,0 +1,23 @@
+{
+  "name": "sistema_de_hotelaria",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Kauê Gomes",
+  "type": "module",
+  "main": "main.js",
+  "directories": {
+    "src": "src",
+    "service": "src/service",
+    "view": "src/view",
+    "model": "src/model",
+    "controller": "src/controller",
+    "doc": "docs",
+    "test": "test",
+    "data": "data"
+  },
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
