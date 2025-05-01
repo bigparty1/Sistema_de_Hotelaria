@@ -23,13 +23,14 @@ Sistema para gestão de hotéis e reservas, desenvolvido como um sistema de term
 - Um hotel pode ter várias reservas.
 - Uma reserva pertence a um cliente e a um hotel.
 - Um hotel só pode aceitar reservas se houver disponibilidade de quartos.
+- a disponibilidade de quartos é verificada no momento da reserva, de acordo com as demais reservas do periodo.
 - O check-in só pode ser realizado na data de início da reserva.
 - O check-out só pode ser realizado após o check-in.
 - Reservas canceladas não podem ser reativadas.
 
 ## Tecnologias
 - **JavaScript**: Linguagem de programação utilizada para o desenvolvimento do sistema.
-- **Node.js**: Ambiente de execução JavaScript no lado do servidor.
+- **Node.js**: Ambiente de execução JavaScript.
 - **JSON**: Formato de intercâmbio de dados leve e fácil de ler, utilizado para armazenar os dados do sistema.
 - **MVC**: Modelo de arquitetura de software que separa a aplicação em três componentes principais: Modelo, Visão e Controlador.
 - Os dados serão mocados (ou seja, não serão persistidos em banco de dados), mas sim armazenados em sistemas simples de arquivos JSON.
