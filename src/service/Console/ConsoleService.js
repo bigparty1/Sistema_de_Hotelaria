@@ -69,7 +69,7 @@ export class ConsoleService {
     }
 
     RegisterResizeEvent(identifier, func) {
-        this.#funcsResize.push({identifier: func });
+        this.#funcsResize.push({identifier: identifier, value: func });
     }
 
     RemoveResizeEvent(idenfifier) {
@@ -77,7 +77,7 @@ export class ConsoleService {
     }
 
     RegisterKeyPressEvent(identifier, func) {
-        this.#funcsKeyPress.push({identifier: func });
+        this.#funcsKeyPress.push({identifier: identifier, value: func });
     }
 
     RemoveKeyPressEvent(identifier) {
