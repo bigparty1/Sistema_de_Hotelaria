@@ -40,7 +40,6 @@ export class NavegacaoController {
 
             if(this.#currentController) {
                 this.#currentController.destructor();
-                delete this.#currentController;
                 this.#currentController = null;
             }
 
@@ -65,7 +64,5 @@ export class NavegacaoController {
         }
 
         LogService.getInstace().debug('Saindo do loop principal...');
-
-        this.destructor();
     }
 }
