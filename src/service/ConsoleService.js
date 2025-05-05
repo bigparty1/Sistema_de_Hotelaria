@@ -1,3 +1,5 @@
+import { LogService } from "./logService.js";
+
 /**
  * @author Kauê Gomes
  * @file ConsoleService.js
@@ -87,6 +89,7 @@ export class ConsoleService {
      * @param {function} func - Função a ser chamada quando o console for redimencionado
     */
     RegisterResizeEvent(identifier, func) {
+        LogService.getInstace().debug(`Registrando evento de resize: ${identifier}`);
         this.#funcsResize.push({identifier: identifier, value: func });
     }
 
@@ -95,7 +98,8 @@ export class ConsoleService {
      * @param {string} idenfifier - Identificador da função a ser removida
      */
     RemoveResizeEvent(idenfifier) {
-        this.#funcsResize = this.#funcsResize.filter(key => key.idenfier !== idenfifier);
+        LogService.getInstace().debug(`Removendo evento de resize: ${idenfifier}`);
+        this.#funcsResize = this.#funcsResize.filter(key => key.identifier !== idenfifier);
     }
 
     /**
@@ -104,6 +108,7 @@ export class ConsoleService {
      * @param {function} func - Função a ser chamada quando uma tecla for pressionada
      */
     RegisterKeyPressEvent(identifier, func) {
+        LogService.getInstace().debug(`Registrando evento de keypress: ${identifier}`);
         this.#funcsKeyPress.push({identifier: identifier, value: func });
     }
 
@@ -112,7 +117,8 @@ export class ConsoleService {
      * @param {string} idenfifier - Identificador da função a ser removida
      */
     RemoveKeyPressEvent(identifier) {
-        this.#funcsKeyPress = this.#funcsKeyPress.filter(key => key.idenfier !== identifier);
+        LogService.getInstace().debug(`Removendo evento de keypress: ${identifier}`);
+        this.#funcsKeyPress = this.#funcsKeyPress.filter(key => key.identifier !== identifier);
     }
 
     /**
