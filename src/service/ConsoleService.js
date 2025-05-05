@@ -129,7 +129,7 @@ export class ConsoleService {
      * @example
      * consoleService.print('Hello World', consoleService.CoresTexto.VERMELHO, consoleService.CoresFundo.BRANCO);
      */
-    print(texto, corTexto, corFundo) {
+    print(texto, corTexto = '', corFundo = '') {
         process.stdout.write(`${corTexto}${corFundo}${texto}\x1b[0m`);
     }
 
@@ -141,7 +141,7 @@ export class ConsoleService {
      * @example
      * consoleService.printLine('Hello World', consoleService.CoresTexto.VERMELHO, consoleService.CoresFundo.BRANCO);
      */
-    printLine(texto, corTexto, corFundo) {
+    printLine(texto, corTexto = '', corFundo = '') {
         process.stdout.write(`${corTexto}${corFundo}${texto}\x1b[0m\n`);
     }
 
