@@ -154,7 +154,11 @@ export class ConsoleService {
     centralizarTexto(texto, tamanho)
     {
         const espacos = Math.floor((tamanho - texto.length) / 2);
-        return ' '.repeat(espacos) + texto + ' '.repeat(espacos);        
+        let textoCentralizado = ' '.repeat(espacos) + texto + ' '.repeat(espacos);
+        if (textoCentralizado.length < tamanho) {
+            textoCentralizado += ' ';
+        }
+        return textoCentralizado;
     }
 
     /**
