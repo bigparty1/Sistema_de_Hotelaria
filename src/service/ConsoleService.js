@@ -7,7 +7,7 @@
  * @requires module:process
  */
 export class ConsoleService {
-    static #instance = new ConsoleService();
+    static #instace = new ConsoleService();
 
     /** @description Largura atual do console, em unidades console */
     larguraTela;
@@ -78,7 +78,7 @@ export class ConsoleService {
 
     /** @returns Instância da classe ConsoleService  */
     static getInstance() {
-        return ConsoleService.#instance;
+        return ConsoleService.#instace;
     }
 
     /** 
@@ -95,7 +95,7 @@ export class ConsoleService {
      * @param {string} idenfifier - Identificador da função a ser removida
      */
     RemoveResizeEvent(idenfifier) {
-        this.#funcsResize = this.funcsResize.filter(key => key.idenfier !== idenfifier);
+        this.#funcsResize = this.#funcsResize.filter(key => key.idenfier !== idenfifier);
     }
 
     /**
@@ -112,7 +112,7 @@ export class ConsoleService {
      * @param {string} idenfifier - Identificador da função a ser removida
      */
     RemoveKeyPressEvent(identifier) {
-        this.#funcsKeyPress = this.funcsKeyPress.filter(key => key.idenfier !== identifier);
+        this.#funcsKeyPress = this.#funcsKeyPress.filter(key => key.idenfier !== identifier);
     }
 
     /**
