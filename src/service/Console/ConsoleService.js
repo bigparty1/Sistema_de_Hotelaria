@@ -1,12 +1,23 @@
+/**
+ * @author Kauê Gomes
+ * @file ConsoleService.js
+ * @module ConsoleService
+ * @description Serviço para manipulação do console, 
+ *              incluindo eventos de resize e keypress.
+ * @requires module:process
+ */
 export class ConsoleService {
-    
     static #instance = new ConsoleService();
 
+    /** @description Largura atual do console, em unidades console */
     larguraTela;
+    /** @description Altura atual do console, em unidades console */
     alturaTela;
+
     #funcsResize = [];
     #funcsKeyPress = [];
 
+    /** @description Cores de texto disponíveis para impressão no console */
     CoresTexto = {
         PRETO: '\x1b[30m',
         VERMELHO: '\x1b[31m',
@@ -18,6 +29,7 @@ export class ConsoleService {
         BRANCO: '\x1b[37m'
     };
 
+    /** @description Cores de fundo de texto disponíveis para impressão no console */
     CoresFundo = {
         PRETO: '\x1b[40m',
         VERMELHO: '\x1b[41m',
@@ -64,54 +76,109 @@ export class ConsoleService {
         process.stdin.removeAllListeners('data');
     }
 
+    /** @returns Instância da classe ConsoleService  */
     static getInstance() {
         return ConsoleService.#instance;
     }
 
+    /** 
+     * @description Registra funções para serem chamadas quando o console for redimencionado 
+     * @param {string} identifier - Identificador da função a ser registrada
+     * @param {function} func - Função a ser chamada quando o console for redimencionado
+    */
     RegisterResizeEvent(identifier, func) {
         this.#funcsResize.push({identifier: identifier, value: func });
     }
 
+    /**
+     * @description Remove funções registradas para serem chamadas quando o console for redimencionado
+     * @param {string} idenfifier - Identificador da função a ser removida
+     */
     RemoveResizeEvent(idenfifier) {
         this.#funcsResize = this.funcsResize.filter(key => key.idenfier !== idenfifier);
     }
 
+    /**
+     * @description Registra funções para serem chamadas quando uma tecla for pressionada
+     * @param {string} identifier - Identificador da função a ser registrada
+     * @param {function} func - Função a ser chamada quando uma tecla for pressionada
+     */
     RegisterKeyPressEvent(identifier, func) {
         this.#funcsKeyPress.push({identifier: identifier, value: func });
     }
 
+    /**
+     * @description Remove funções registradas para serem chamadas quando uma tecla for pressionada
+     * @param {string} idenfifier - Identificador da função a ser removida
+     */
     RemoveKeyPressEvent(identifier) {
         this.#funcsKeyPress = this.funcsKeyPress.filter(key => key.idenfier !== identifier);
     }
 
+    /**
+     * @description Imprime texto no console com cores de texto e fundo (sem quebra de linha)
+     * @param {string} texto - Texto a ser impresso
+     * @param {ConsoleService.CoresTexto} corTexto - Cor do texto
+     * @param {ConsoleService.corFundo} corFundo - Cor do fundo
+     * @example
+     * consoleService.print('Hello World', consoleService.CoresTexto.VERMELHO, consoleService.CoresFundo.BRANCO);
+     */
     print(texto, corTexto, corFundo) {
         process.stdout.write(`${corTexto}${corFundo}${texto}\x1b[0m`);
     }
 
+    /**
+     * @description Imprime texto no console com cores de texto e fundo (com quebra de linha)
+     * @param {string} texto - Texto a ser impresso
+     * @param {ConsoleService.CoresTexto} corTexto - Cor do texto
+     * @param {ConsoleService.CoresFundo} corFundo - Cor do fundo
+     * @example
+     * consoleService.printLine('Hello World', consoleService.CoresTexto.VERMELHO, consoleService.CoresFundo.BRANCO);
+     */
     printLine(texto, corTexto, corFundo) {
         process.stdout.write(`${corTexto}${corFundo}${texto}\x1b[0m\n`);
     }
 
+    /**
+     * @description Centraliza o texto em relação ao tamanho especificado
+     * @param {string} texto - Texto a ser centralizado
+     * @param {number} tamanho  - Tamanho total em que o texto deve ser centralizado
+     * @returns Texto centralizado em relação ao tamanho especificado 
+     */
     centralizarTexto(texto, tamanho)
     {
         const espacos = Math.floor((tamanho - texto.length) / 2);
         return ' '.repeat(espacos) + texto + ' '.repeat(espacos);        
     }
 
+    /**
+     * @description Move o cursor para a posição especificada no console
+     * @param {number} x - Posição no eixo x do cursor 
+     * @param {number} y - Posição no eixo y do cursor
+     */
     gotoxy(x, y) {
         process.stdout.write(`\x1b[${y};${x}H`);
     }
 
+    /**
+     * @description Limpa a tela do console
+     */
     limpaTela() {
         process.stdout.write('\x1b[2J');
         process.stdout.write('\x1b[3J');
         process.stdout.write('\x1b[H');
     }
 
+    /**
+     * @description Desabilita o cursor do console
+     */
     desabilitarCursor() {
         process.stdout.write('\x1b[?25l');
     }
 
+    /**
+     * @description Habilita o cursor do console
+     */
     habilitarCursor() {
         process.stdout.write('\x1b[?25h');
     }
