@@ -17,7 +17,7 @@
     "data": "data"
   },
   "scripts": {
-    "start": "node src/main.js",
+    "start": "set DEBUG=true&& node src/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
