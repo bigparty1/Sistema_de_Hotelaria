@@ -33,6 +33,7 @@ Sistema para gestão de hotéis e reservas, desenvolvido como um sistema de term
 - **Node.js**: Ambiente de execução JavaScript.
 - **JSON**: Formato de intercâmbio de dados leve e fácil de ler, utilizado para armazenar os dados do sistema.
 - **MVC**: Modelo de arquitetura de software que separa a aplicação em três componentes principais: Modelo, Visão e Controlador.
+- **JSDoc**: Ferramenta para gerar documentação a partir de comentários no código-fonte.
 - Os dados serão mocados (ou seja, não serão persistidos em banco de dados), mas sim armazenados em sistemas simples de arquivos JSON.
 - O sistema será de terminal (CLI - Command Line Interface).
 
