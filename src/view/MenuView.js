@@ -22,7 +22,7 @@ export class MenuView {
     #callbackSelecionarOpcao = null;
     
     constructor() {
-        this.#consoleService = ConsoleService.getInstance();
+        this.#consoleService = ConsoleService.getInstace();
     }
 
     destructor() {
