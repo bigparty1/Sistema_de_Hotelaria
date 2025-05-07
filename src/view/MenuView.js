@@ -26,6 +26,7 @@ export class MenuView {
     }
 
     destructor() {
+        LogService.getInstace().debug('Destruindo MenuView...');
         this.#consoleService.RemoveResizeEvent(this.identifier);
         this.#consoleService.RemoveKeyPressEvent(this.identifier);
         this.#consoleService.habilitarCursor();
@@ -65,7 +66,7 @@ export class MenuView {
 
     DesenharOpcoes()
     {
-        let linhaImpressao = (this.#consoleService.alturaTela - 10) / 2;
+        let linhaImpressao = Math.floor((this.#consoleService.alturaTela - Object.keys(this.opcoes).length) / 2);
         for (let i = 0; i < Object.keys(this.opcoes).length; i++) {
             this.#consoleService.gotoxy(1, linhaImpressao++);
             this.#consoleService.print(
