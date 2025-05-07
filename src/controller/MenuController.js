@@ -3,6 +3,7 @@ import { NavegacaoController } from "./NavegacaoController.js";
 import { EventService } from "../service/EventService.js";
 import { LogService } from "../service/logService.js";
 import { CadastroClienteController } from "./CadastroClienteController.js";
+import { CadastroHotelController } from "./CadastroHotelController.js";
 
 export class MenuController {
     static identifier = 'MenuController';
@@ -36,7 +37,8 @@ export class MenuController {
             case 0:
                 throw new Error('Opção não implementada!');
             case 1:
-                throw new Error('Opção não implementada!');
+                identificadorOpcao = CadastroHotelController.identifier;
+                break;
             case 2:
                 throw new Error('Opção não implementada!');
             case 3:

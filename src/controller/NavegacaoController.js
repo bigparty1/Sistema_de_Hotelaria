@@ -2,6 +2,7 @@ import { MenuController } from "./MenuController.js";
 import { EventService } from "../service/EventService.js";
 import { LogService } from "../service/logService.js";
 import { CadastroClienteController } from "./CadastroClienteController.js";
+import { CadastroHotelController } from "./CadastroHotelController.js";
 
 export class NavegacaoController {
     static identifier = 'NavegacaoController';
@@ -58,6 +59,11 @@ export class NavegacaoController {
                 case NavegacaoController.sairIdentifier:
                     LogService.getInstace().debug('Navegando para saída...');
                     continuar = false;
+                    break;
+
+                case CadastroHotelController.identifier:
+                    LogService.getInstace().debug('Navegando para CadastroHotelController...');
+                    this.#currentController = new CadastroHotelController();
                     break;
                 
                 default:
