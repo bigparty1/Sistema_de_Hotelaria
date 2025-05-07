@@ -72,6 +72,7 @@ export class ConsoleService {
 
     destructor() {
         this.habilitarCursor();
+        this.limpaTela();
         process.stdin.setRawMode(false);
         process.stdin.pause();
         process.stdout.removeAllListeners('resize');
