@@ -80,7 +80,7 @@ export class ConsoleService {
     }
 
     /** @returns Instância da classe ConsoleService  */
-    static getInstance() {
+    static getInstace() {
         return ConsoleService.#instace;
     }
 

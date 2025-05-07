@@ -20,7 +20,7 @@ export class CadastroUsuarioView {
     #Finalizado = false; 
 
     constructor() {
-        this.#consoleService = ConsoleService.getInstance();
+        this.#consoleService = ConsoleService.getInstace();
         this.cliente = {
             clienteId: '',
             nome: '',
@@ -37,7 +37,7 @@ export class CadastroUsuarioView {
         this.#consoleService.limpaTela();
     }
 
-    QuandoSalvarUsuario(func) {
+    QuandoSalvarCliente(func) {
         this.#quandoSalvarFunc = func;
     }
 
