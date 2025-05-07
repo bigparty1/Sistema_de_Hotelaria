@@ -28,7 +28,7 @@ export class CadastroClienteController {
     async StartAsync() {
         this.#cadastroClienteView.QuandoCancelar(this.Retornar.bind(this));
         this.#cadastroClienteView.QuandoRetornar(this.Retornar.bind(this));
-        this.#cadastroClienteView.QuandoSalvarUsuario(this.SalvarUsuario.bind(this));
+        this.#cadastroClienteView.QuandoSalvarCliente(this.SalvarCliente.bind(this));
         this.#cadastroClienteView.Start();
 
         await new Promise(resolve => {
@@ -36,7 +36,7 @@ export class CadastroClienteController {
         });
     }
 
-    SalvarUsuario(cliente) {
+    SalvarCliente(cliente) {
         try {
             let clienteRetorno = this.#clienteService.adicionarCliente(cliente);
             this.#cadastroClienteView.cliente = clienteRetorno;
